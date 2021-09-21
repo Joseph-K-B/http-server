@@ -1,6 +1,6 @@
 import request from 'supertest';
 import app from '../lib/app.js';
-const index = '../public/index.html';
+// const index = '../public/index.html';
 
 describe('http server app routes', () => {
   it('gets index.html file from get /', async () => {
@@ -20,10 +20,13 @@ describe('http server app routes', () => {
     // </body>
     // </html>`);
   });
-  
+
   it('gets css file from get /css/main.css', async () => {
     const res = await request(app).get('/css/main.css');
     expect (res.statusCode).toEqual(200);
+    //     expect (res.text).toEqual(`h1 {
+    // background-color: aqua;
+    // color: black;`);
   });
 
   it('returns 404 for non-existant GET route', async () => {
