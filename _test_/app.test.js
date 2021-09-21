@@ -3,7 +3,7 @@ import app from '../lib/app.js';
 const index = '../public/index.html';
 
 describe('http server app routes', () => {
-  it('gets index.html file from get /index', async () => {
+  it('gets index.html file from get /', async () => {
     const res = await request(app).get('/');
     expect (res.statusCode).toEqual(200);
     expect(res.text).toEqual(`<!DOCTYPE html>
@@ -19,5 +19,9 @@ describe('http server app routes', () => {
     <h1>Text</h1>
 </body>
 </html>`);
+  });
+  it('gets css file from get /css/main.css', async () => {
+    const res = await request(app).get('/css/main.css');
+    expect (res.statusCode).toEqual(200);
   });
 });
